@@ -1,4 +1,4 @@
-import { startClock, addCount, serverRenderClock } from 'actions';
+import { startClock, addCount, serverRenderClock, getEmotions } from 'actions';
 import Page from 'containers/page';
 import withRedux from 'next-redux-wrapper';
 import { compose, setDisplayName, pure, lifecycle, withProps } from 'recompose';
@@ -12,7 +12,7 @@ const Counter = compose(
   }),
   lifecycle({
     componentDidMount() {
-      this.timer = this.props.startClock();
+      this.props.getEmotions();
     },
     componentWillUnmount() {
       clearInterval(this.timer);
@@ -27,4 +27,4 @@ Counter.getInitialProps = ({ store, isServer }) => {
   return { isServer };
 };
 
-export default withRedux(initStore, null, { startClock })(Counter);
+export default withRedux(initStore, null, { startClock, getEmotions })(Counter);
