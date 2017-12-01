@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose, setDisplayName, pure, setPropTypes } from 'recompose';
 
-const AddCount = ({ setFilter }) => (
+const ShortSelect = ({ setFilter }) => (
   <div>
     <style jsx>{`
       div {
@@ -21,8 +21,8 @@ const AddCount = ({ setFilter }) => (
 export default compose(
   setDisplayName('AddCount'),
   setPropTypes({
-    count: PropTypes.number,
+    home: PropTypes.number,
     setFilter: PropTypes.func,
   }),
   pure,
-)(AddCount);
+)(ShortSelect);
