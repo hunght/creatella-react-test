@@ -1,12 +1,9 @@
-import { TICK, ADD } from 'constants/actionTypes';
 import { getEmotionsAPI } from 'services/restAPI';
 import { concat } from 'ramda';
 import { Observable } from 'rxjs';
 
 const PAGE_LIMIT = 200;
-export const addCount = () => ({ type: ADD });
 
-export const setClock = (light, ts) => ({ type: TICK, light, ts });
 export const setSize = ({ width, height }) => ({
   type: 'SET_SIZE',
   data: {
@@ -15,11 +12,12 @@ export const setSize = ({ width, height }) => ({
   },
 });
 
-export const serverRenderClock = isServer => dispatch =>
-  dispatch(setClock(!isServer, Date.now()));
-
-export const startClock = () => dispatch =>
-  setInterval(() => dispatch(setClock(true, Date.now())), 800);
+export const setFilter = filter => ({
+  type: 'SET_FILTER',
+  data: {
+    filter,
+  },
+});
 
 const handleError = error => {
   alert(error.toString());

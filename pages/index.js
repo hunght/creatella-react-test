@@ -1,10 +1,4 @@
-import {
-  startClock,
-  addCount,
-  serverRenderClock,
-  getEmotions,
-  setSize,
-} from 'actions';
+import { getEmotions, setSize } from 'actions';
 import { Subject } from 'rxjs';
 import Page from 'containers/page';
 import withRedux from 'next-redux-wrapper';
@@ -18,7 +12,7 @@ import {
 } from 'recompose';
 import initStore from 'store';
 
-const Counter = compose(
+const HomePage = compose(
   setDisplayName('IndexPage'),
   withProps({
     title: 'Index page',
@@ -79,19 +73,12 @@ const Counter = compose(
   pure,
 )(Page);
 
-Counter.getInitialProps = ({ store, isServer }) => {
-  store.dispatch(serverRenderClock(isServer));
-  store.dispatch(addCount());
-  return { isServer };
-};
-
 export default withRedux(
   initStore,
   state => ({
-    emotions: state.data.response,
     size: state.count.size,
     isLoading: state.data.isLoading,
     isNoMoreEmotion: state.data.isNoMoreEmotion,
   }),
-  { startClock, getEmotions, setSize },
-)(Counter);
+  { getEmotions, setSize },
+)(HomePage);

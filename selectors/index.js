@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect';
+import { sortWith, prop, ascend } from 'ramda';
 
-export const selectState = () => state => state.count;
-
-export const selectCount = () =>
-  createSelector(selectState(), count => count.count);
-
-export const selectLight = () =>
-  createSelector(selectState(), count => count.light);
-
-export const selectLastUpdate = () =>
-  createSelector(selectState(), count => count.lastUpdate);
+export const selectEmotionsWithFilter = createSelector(
+  state => state.data.response,
+  state => state.data.filter,
+  (emotions, filter) => {
+    return emotions
+      ? filter ? sortWith([ascend(prop(filter))])(emotions) : emotions
+      : null;
+  },
+);

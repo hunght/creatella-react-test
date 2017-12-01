@@ -1,20 +1,16 @@
 import { connect } from 'react-redux';
-import { addCount } from 'actions';
-import { selectLight, selectLastUpdate, selectCount } from 'selectors';
-import { createSelector } from 'reselect';
+import { setFilter } from 'actions';
+import { selectEmotionsWithFilter } from 'selectors';
 import { compose, setDisplayName, pure } from 'recompose';
 import Page from 'components/page';
 
 export default compose(
   setDisplayName('PageContainer'),
   connect(
-    createSelector(
-      selectLight(),
-      selectLastUpdate(),
-      selectCount(),
-      (light, lastUpdate, count) => ({ light, lastUpdate, count }),
-    ),
-    { addCount },
+    state => ({
+      emotions: selectEmotionsWithFilter(state),
+    }),
+    { setFilter },
   ),
   pure,
 )(Page);

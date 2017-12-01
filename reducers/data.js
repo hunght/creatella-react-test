@@ -14,6 +14,8 @@ const reducer = (state = initValue, action) => {
       return merge(state, action.data);
     case 'END_REQUEST':
       return merge(state, action.data);
+    case 'SET_FILTER':
+      return merge(state, action.data);
     default:
       return state;
   }
