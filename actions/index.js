@@ -2,7 +2,7 @@ import { getEmotionsAPI } from 'services/restAPI';
 import { concat } from 'ramda';
 import { Observable } from 'rxjs';
 
-const PAGE_LIMIT = 200;
+const PAGE_LIMIT = 20;
 
 export const setSize = ({ width, height }) => ({
   type: 'SET_SIZE',
@@ -55,8 +55,11 @@ export const getEmotions = props => (dispatch, getState) => {
       handleError(error);
     },
     () => {
+      getEmotionsAPI({
+        page: page + 1,
+        limit: PAGE_LIMIT,
+      });
       dispatch({ type: 'END_REQUEST', data: { isLoading: false, page } });
-      console.log('finished getEmotions');
     },
   );
 };

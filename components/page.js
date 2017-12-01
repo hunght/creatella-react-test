@@ -23,7 +23,7 @@ const Page = ({
           index === 0 || index % 20 !== 0 ? (
             <Emotion key={item.id} item={item} />
           ) : (
-            <div>
+            <div key={item.id}>
               <img className="ad" src={getImageSourceAdd()} />
               <Emotion key={item.id} item={item} />
             </div>

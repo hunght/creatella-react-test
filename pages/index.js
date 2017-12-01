@@ -15,7 +15,7 @@ import initStore from 'store';
 const HomePage = compose(
   setDisplayName('IndexPage'),
   withProps({
-    title: 'Index page',
+    title: 'Emotions page',
     linkTo: '/other',
   }),
 
