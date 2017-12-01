@@ -1,5 +1,5 @@
 import { ADD, TICK } from 'constants/actionTypes';
-
+import { merge } from 'ramda';
 export const initialState = {
   lastUpdate: 0,
   light: false,
@@ -21,6 +21,9 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         count: state.count + 1,
       });
+    }
+    case 'SET_SIZE': {
+      return merge(state, { size: action.data });
     }
 
     default: {
