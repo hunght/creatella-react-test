@@ -76,7 +76,7 @@ const HomePage = compose(
 export default withRedux(
   initStore,
   state => ({
-    size: state.count.size,
+    size: state.home.size,
     isLoading: state.data.isLoading,
     isNoMoreEmotion: state.data.isNoMoreEmotion,
   }),

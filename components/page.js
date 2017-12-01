@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { compose, setDisplayName, pure, setPropTypes } from 'recompose';
 import Emotion from './emotion';
-import AddCount from './addCount';
+import AddCount from './shortSelect';
 import { getImageSourceAdd } from 'services/restAPI';
 
 const Page = ({
@@ -31,11 +31,6 @@ const Page = ({
       )}
     {isLoading && <p>loading...</p>}
     {isNoMoreEmotion && <p>~ end of catalogue ~</p>}
-    <nav>
-      <Link href={linkTo}>
-        <a>Navigate</a>
-      </Link>
-    </nav>
   </div>
 );
 
@@ -46,7 +41,7 @@ export default compose(
     linkTo: PropTypes.string,
     light: PropTypes.bool,
     lastUpdate: PropTypes.number,
-    count: PropTypes.number,
+    home: PropTypes.number,
     addCount: PropTypes.func,
   }),
   pure,

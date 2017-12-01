@@ -2,7 +2,7 @@ import { getEmotionsAPI } from 'services/restAPI';
 import { concat } from 'ramda';
 import { Observable } from 'rxjs';
 
-const PAGE_LIMIT = 20;
+const PAGE_LIMIT = 40;
 
 export const setSize = ({ width, height }) => ({
   type: 'SET_SIZE',
