@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import count, { initialState as countState } from './home';
+import home, { initialState as homeState } from './home';
 import data from './data';
 
 export const intitialState = {
-  home: countState,
+  home: homeState,
 };
 
 export default combineReducers({
-  home: count,
+  home,
   data,
 });

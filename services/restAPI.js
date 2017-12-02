@@ -3,6 +3,7 @@
 // normally, our interface to any sort of server API will be as a service
 
 import { contains } from 'ramda';
+
 const BaseURL = 'http://localhost:3000';
 let cacheAPI = {};
 export const getEmotionsAPI = async ({ page, limit = '10' }) => {

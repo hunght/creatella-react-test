@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { compose, setDisplayName, pure, setPropTypes } from 'recompose';
 import Emotion from './emotion';
-import AddCount from './shortSelect';
+import ShortSelect from './shortSelect';
 import { getImageSourceAdd } from 'services/restAPI';
 
 const Page = ({
@@ -16,17 +16,17 @@ const Page = ({
 }) => (
   <div>
     <h1>{title}</h1>
-    <AddCount setFilter={setFilter} />
+    <ShortSelect setFilter={setFilter} />
     {emotions &&
       emotions.map(
         (item, index) =>
           index === 0 || index % 20 !== 0 ? (
             <Emotion key={item.id} item={item} />
           ) : (
-            <div key={item.id}>
-              <img className="ad" src={getImageSourceAdd()} />
-              <Emotion key={item.id} item={item} />
-            </div>
+            [
+              <img className="ad" src={getImageSourceAdd()} />,
+              <Emotion key={item.id} item={item} />,
+            ]
           ),
       )}
     {isLoading && <p>loading...</p>}
