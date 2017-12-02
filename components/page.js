@@ -24,7 +24,11 @@ const Page = ({
             <Emotion key={item.id} item={item} />
           ) : (
             [
-              <img className="ad" src={getImageSourceAdd()} />,
+              <img
+                key={item.id + 'ad'}
+                className="ad"
+                src={getImageSourceAdd()}
+              />,
               <Emotion key={item.id} item={item} />,
             ]
           ),
