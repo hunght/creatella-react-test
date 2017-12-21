@@ -1,4 +1,6 @@
 
+<img width="1402" alt="screen shot 2017-12-21 at 7 00 54 pm" src="https://user-images.githubusercontent.com/1697756/34255130-c1bd8770-e681-11e7-84e1-ebde3a5cd785.png">
+
 Installation:
 ====
 - yarn install
