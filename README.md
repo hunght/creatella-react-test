@@ -1,7 +1,7 @@
 Installation:
-yarn install
-yarn start # start server at port 3000
-yarn dev # start site at port 8080
+- yarn install
+- yarn start # start server at port 3000
+- yarn dev # start site at port 8080
 
 
 
