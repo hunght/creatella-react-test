@@ -1,19 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import { compose, setDisplayName, pure, setPropTypes } from 'recompose';
+import { getImageSourceAdd } from 'services/restAPI';
 import Emotion from './emotion';
 import ShortSelect from './shortSelect';
-import { getImageSourceAdd } from 'services/restAPI';
 
-const Page = ({
-  title,
-  linkTo,
-  setFilter,
-  emotions,
-  isLoading,
-  isNoMoreEmotion,
-}) => (
+const Page = ({ title, setFilter, emotions, isLoading, isNoMoreEmotion }) => (
   <div>
     <h1>{title}</h1>
     <ShortSelect setFilter={setFilter} />
@@ -29,9 +21,9 @@ const Page = ({
                 className="ad"
                 src={getImageSourceAdd()}
               />,
-              <Emotion key={item.id} item={item} />,
+              <Emotion key={item.id} item={item} />
             ]
-          ),
+          )
       )}
     {isLoading && <p>loading...</p>}
     {isNoMoreEmotion && <p>~ end of catalogue ~</p>}
@@ -46,7 +38,7 @@ export default compose(
     light: PropTypes.bool,
     lastUpdate: PropTypes.number,
     home: PropTypes.number,
-    addCount: PropTypes.func,
+    addCount: PropTypes.func
   }),
-  pure,
+  pure
 )(Page);

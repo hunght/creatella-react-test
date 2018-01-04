@@ -8,19 +8,18 @@ const BaseURL = 'http://localhost:3000';
 let cacheAPI = {};
 export const getEmotionsAPI = async ({ page, limit = '10' }) => {
   if (cacheAPI.page === page && cacheAPI.limit === limit) {
-    console.log('load cacheAPI =', cacheAPI);
     return cacheAPI.data;
   }
   const url = `${BaseURL}/api/products?_page=${page}&_limit=${limit}`;
   const response = await fetch(url, {
     method: 'GET',
     headers: {
-      Accept: 'application/json',
-    },
+      Accept: 'application/json'
+    }
   });
   if (!response.ok) {
     throw new Error(
-      ` Service getEmotionsAPI failed, HTTP status ${response.status}`,
+      ` Service getEmotionsAPI failed, HTTP status ${response.status}`
     );
   }
   const data = response.json();
