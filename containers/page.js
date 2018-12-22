@@ -3,7 +3,7 @@ import { setFilter } from 'actions';
 import { selectEmotionsWithFilter } from 'selectors';
 import { compose, setDisplayName, pure } from 'recompose';
 import Page from 'components/page';
-
+// compose
 export default compose(
   setDisplayName('PageContainer'),
   connect(
